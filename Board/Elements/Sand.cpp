@@ -7,4 +7,5 @@
 Sand::Sand() {
     ID = 1;
     color = YELLOW;
+    ColorOffset();
 }

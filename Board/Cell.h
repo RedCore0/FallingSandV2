@@ -12,6 +12,9 @@ public:
     Cell();
     int ID;
     Color color{};
+
+    void ColorOffset();
+    int RandomInRange(int min, int max);
 };
 
 
