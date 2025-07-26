@@ -17,6 +17,14 @@ FetchContent_MakeAvailable(raylib)
 add_executable(${PROJECT_NAME} main.cpp
         Game.cpp
         Game.h
+        Board/Board.cpp
+        Board/Board.h
+        Board/Cell.cpp
+        Board/Cell.h
+        Board/Elements/Air.cpp
+        Board/Elements/Air.h
+        Board/Elements/Sand.cpp
+        Board/Elements/Sand.h
 )
 
 # Link raylib

@@ -9,10 +9,12 @@ int main() {
     Game game;
 
     while (!WindowShouldClose()) {
+        game.HandleInput();
         BeginDrawing();
         ClearBackground(BLACK);
+        game.Draw();
+        DrawFPS(400, 10);
         EndDrawing();
-        //hello
     }
 
     CloseWindow();
