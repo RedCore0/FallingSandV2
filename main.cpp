@@ -10,6 +10,7 @@ int main() {
 
     while (!WindowShouldClose()) {
         game.HandleInput();
+        game.Update();
         BeginDrawing();
         ClearBackground(BLACK);
         game.Draw();

@@ -7,5 +7,5 @@
 
 Air::Air() {
     ID = 0;
-    color = BLUE;
+    color = SKYBLUE;
 }

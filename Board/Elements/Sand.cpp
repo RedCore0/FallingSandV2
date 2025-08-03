@@ -7,5 +7,8 @@
 Sand::Sand() {
     ID = 1;
     color = YELLOW;
+    useGravity = true;
+    isSolid = true;
+    dormantTime = 100;
     ColorOffset();
 }

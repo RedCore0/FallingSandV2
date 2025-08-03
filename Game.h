@@ -11,6 +11,7 @@ class Game {
 public:
     Game();
     void HandleInput();
+    void Update();
     void Draw() const;
 private:
     Board board;

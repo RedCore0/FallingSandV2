@@ -12,9 +12,24 @@ public:
     Cell();
     int ID;
     Color color{};
+    bool useGravity;
+    bool isSolid;
+    bool isActive;
+
+    int timeToDormant;
+    int dormantTime;
+
+    int verticalVelocity;
+    int horizontalVelocity;
+    int horizontalVelocityTravelled;
+    int horizontalDir;
+    int acceleration;
 
     void ColorOffset();
+    void UpdatePosition(int X, int Y);
     int RandomInRange(int min, int max);
+    int posX;
+    int posY;
 };
 
 

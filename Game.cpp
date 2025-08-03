@@ -19,6 +19,10 @@ void Game::HandleInput() {
     }
 }
 
+void Game::Update() {
+    board.UpdateBoard();
+}
+
 void Game::Draw() const {
     board.DrawBoard();
 }

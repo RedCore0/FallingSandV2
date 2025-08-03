@@ -20,17 +20,30 @@ public:
 
     void InputToCell(int row, int column);
 
+    void UpdateBoard();
+
+    void UpdateCells();
+
     void DrawBoard() const;
 
     vector<vector<Cell>> cells;
+    vector<vector<Cell>> cellsClone;
     int cellSize;
     int gridOffset;
 
 private:
+    bool setCellState;
+    bool IsWithinBounds(int row, int col) const;
+
+    void FallDown(int row, int col);
+
+    void HorizontalFriction(int row, int col);
+
+    bool FloorExists(int row, int col);
+    bool IsActive(int row, int col);
+    int RandomDirection();
     int height;
     int width;
-
-    bool IsWithinBounds(int row, int col) const;
 };
 
 
