@@ -5,6 +5,7 @@
 #ifndef GAME_H
 #define GAME_H
 #include "Board/Board.h"
+#include "GUI/gui.h"
 
 
 class Game {
@@ -12,9 +13,10 @@ public:
     Game();
     void HandleInput();
     void Update();
-    void Draw() const;
+    void Draw();
 private:
     Board board;
+    gui gameGui;
 };
 
 

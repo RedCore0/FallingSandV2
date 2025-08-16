@@ -6,6 +6,7 @@
 
 Game::Game() {
     board = Board();
+    gameGui = gui();
 }
 
 void Game::HandleInput() {
@@ -15,7 +16,7 @@ void Game::HandleInput() {
         int row = (mousePosition.y - board.gridOffset) / board.cellSize;
         int column = (mousePosition.x - board.gridOffset) / board.cellSize;
 
-        board.InputToCell(row, column);
+        board.InputToCell(row, column, gameGui.selectedElement);
     }
 }
 
@@ -23,6 +24,7 @@ void Game::Update() {
     board.UpdateBoard();
 }
 
-void Game::Draw() const {
+void Game::Draw() {
     board.DrawBoard();
+    gameGui.Draw();
 }

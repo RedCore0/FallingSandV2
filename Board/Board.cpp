@@ -8,6 +8,8 @@
 #include <random>
 
 #include "Elements/Air.h"
+#include "Elements/Clay.h"
+#include "Elements/Dirt.h"
 #include "Elements/Sand.h"
 
 Board::Board() {
@@ -34,13 +36,27 @@ void Board::Initialize(const int height, const int width) {
     }
 }
 
-void Board::InputToCell(const int row, const int column) {
+void Board::InputToCell(const int row, const int column, int element) {
     if (IsWithinBounds(row, column) == false) {return;}
-    cells[row][column] = Sand();
-    cells[row+1][column] = Sand();
-    cells[row-1][column] = Sand();
-    cells[row][column+1] = Sand();
-    cells[row][column-1] = Sand();
+    Cell CellToInput;
+    switch (element) {
+        case 0:
+            CellToInput = Sand();
+            break;
+        case 1:
+            CellToInput = Dirt();
+            break;
+        case 2:
+            CellToInput = Clay();
+            break;
+        default:
+            break;
+    }
+    cells[row][column] = CellToInput;
+    cells[row+1][column] = CellToInput;
+    cells[row-1][column] = CellToInput;
+    cells[row][column+1] = CellToInput;
+    cells[row][column-1] = CellToInput;
 }
 
 void Board::UpdateBoard() {
@@ -122,11 +138,11 @@ void Board::FallDown(int row, int col) {
         }
 
         if (row+thisCell.verticalVelocity > height-1) {
-            thisCell.horizontalVelocity = thisCell.verticalVelocity*5;
+            thisCell.horizontalVelocity = thisCell.verticalVelocity*thisCell.friction;
             thisCell.verticalVelocity = 1;
         }
         if (cellsClone[row+thisCell.verticalVelocity][col].isSolid == true) {
-            thisCell.horizontalVelocity = thisCell.verticalVelocity*5;
+            thisCell.horizontalVelocity = thisCell.verticalVelocity*thisCell.friction;
             thisCell.verticalVelocity = 1;
         }
 
@@ -145,6 +161,10 @@ void Board::HorizontalFriction(int row, int col) {
         if (cellsClone[row][col+thisCell.horizontalDir].isSolid == false) {
             cellsClone[row][col].horizontalVelocityTravelled++;
             std::swap(cellsClone[row][col], cellsClone[row][col+thisCell.horizontalDir]);
+        }else {
+            thisCell.horizontalVelocity = 0;
+            thisCell.horizontalVelocityTravelled = 0;
+            thisCell.horizontalDir = 0;
         }
     }else {
         thisCell.horizontalVelocity = 0;

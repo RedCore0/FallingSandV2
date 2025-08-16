@@ -15,6 +15,8 @@ public:
     bool useGravity;
     bool isSolid;
     bool isActive;
+    int friction;
+
 
     int timeToDormant;
     int dormantTime;

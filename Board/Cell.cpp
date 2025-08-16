@@ -21,6 +21,7 @@ Cell::Cell() {
     posX = 0, posY = 0;
     dormantTime = 5;
     timeToDormant = 0;
+    friction = 0;
 }
 
 void Cell::ColorOffset() {

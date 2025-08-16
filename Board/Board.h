@@ -18,7 +18,7 @@ public:
 
     void PrintBoard() const;
 
-    void InputToCell(int row, int column);
+    void InputToCell(int row, int column, int element);
 
     void UpdateBoard();
 

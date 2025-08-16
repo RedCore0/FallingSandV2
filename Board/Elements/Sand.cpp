@@ -9,6 +9,7 @@ Sand::Sand() {
     color = YELLOW;
     useGravity = true;
     isSolid = true;
-    dormantTime = 100;
+    dormantTime = 500;
+    friction = 10;
     ColorOffset();
 }
