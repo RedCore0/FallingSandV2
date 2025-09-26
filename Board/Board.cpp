@@ -11,6 +11,7 @@
 #include "Elements/Clay.h"
 #include "Elements/Dirt.h"
 #include "Elements/Sand.h"
+#include "Elements/Stone.h"
 
 Board::Board() {
     height = 250;
@@ -48,6 +49,9 @@ void Board::InputToCell(const int row, const int column, int element) {
             break;
         case 2:
             CellToInput = Clay();
+            break;
+        case 3:
+            CellToInput = Stone();
             break;
         default:
             break;

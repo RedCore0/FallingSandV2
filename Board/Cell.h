@@ -22,6 +22,7 @@ public:
     int dormantTime;
 
     int verticalVelocity;
+    int verticalVelocityTravelled;
     int horizontalVelocity;
     int horizontalVelocityTravelled;
     int horizontalDir;

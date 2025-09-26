@@ -11,5 +11,5 @@ gui::gui() {
 }
 
 void gui::Draw() {
-    GuiToggleGroup((Rectangle){505, 20, 190, 40}, "Sand\nDirt\nClay", &selectedElement);
+    GuiToggleGroup((Rectangle){505, 20, 190, 40}, "Sand\nDirt\nClay\nStone", &selectedElement);
 }

@@ -44,6 +44,8 @@ add_executable(${PROJECT_NAME}
         Board/Elements/Dirt.h
         Board/Elements/Clay.cpp
         Board/Elements/Clay.h
+        Board/Elements/Stone.cpp
+        Board/Elements/Stone.h
 )
 
 # 👇 Add include paths for raygui (and raylib if you need it)

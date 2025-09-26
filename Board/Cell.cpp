@@ -14,12 +14,13 @@ Cell::Cell() {
     isSolid = false;
     isActive = true;
     verticalVelocity = 0;
+    verticalVelocityTravelled = 0;
     horizontalVelocity = 0;
     horizontalVelocityTravelled = 0;
     horizontalDir = 0;
     acceleration = 0;
     posX = 0, posY = 0;
-    dormantTime = 5;
+    dormantTime = 0;
     timeToDormant = 0;
     friction = 0;
 }
