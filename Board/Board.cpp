@@ -127,7 +127,8 @@ void Board::FallDown(int row, int col) {
     Cell thisCell = cellsClone[row][col];
     if (cellsClone[row+1][col].isSolid) {
         int dir = RandomDirection();
-        if (col < width-1 && col > 0 && cellsClone[row+1][col+dir].isSolid == false) {
+        if (col < width-1 && col > 0 &&
+            cellsClone[row+1][col+dir].isSolid == false && cellsClone[row][col+dir].isSolid == false) {
             std::swap(cellsClone[row][col], cellsClone[row+1][col+dir]);
         }
     }else {
@@ -150,11 +151,12 @@ void Board::FallDown(int row, int col) {
             thisCell.verticalVelocity = 1;
         }
 
-        cellsClone[row][col] = cellsClone[row+thisCell.verticalVelocity][col];
-        cellsClone[row+thisCell.verticalVelocity][col] = thisCell;
+        for (int r = row; r < row+thisCell.verticalVelocity; r++) {
+            if (cellsClone[r+1][col].isSolid == true) {thisCell.verticalVelocity = 0; return;}
+            cellsClone[r][col] = cellsClone[r+1][col];
+            cellsClone[r+1][col] = thisCell;
+        }
     }
-
-
 }
 
 void Board::HorizontalFriction(int row, int col) {
